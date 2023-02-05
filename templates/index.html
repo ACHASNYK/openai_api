@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
-  <title>OpenAI Quickstart</title>
+  <title>GPT-3 API</title>
   <link
-    rel="shortcut icon"
+    
     href="{{ url_for('static', filename='dog.png') }}"
   />
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
@@ -10,10 +10,10 @@
 
 <body>
   <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
+  <h3>MOC - GPT-3 sample API interface</h3>
   <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
+    <input type="text" name="user_input" placeholder="Enter your request to the model" required />
+    <input type="submit" value="Send request to model" />
   </form>
   {% if result %}
   <div class="result">{{ result }}</div>
