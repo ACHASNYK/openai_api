@@ -11,13 +11,16 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 def index():
     if request.method == "POST":
         user_prompt = request.form["user_input"]
+        user_suffix = request.form["suffix"]
         response = openai.Completion.create(
             model="text-davinci-003",
             # prompt=generate_prompt(user_prompt),
             prompt=user_prompt,
             temperature=0.7,
-            max_tokens=512,
-            suffix="only Logitech models"
+            max_tokens=1000,
+            suffix=user_suffix,
+            # end='end'
+            stream=True,
         )
         print(response)
         return redirect(url_for("index", result=response.choices[0].text))
